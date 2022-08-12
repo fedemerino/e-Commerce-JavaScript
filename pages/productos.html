@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Insumax</title>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul class="nav__links">
+                <li><a href="../index.html" style="transition: none; background-color: #24252A;"><img class="logo" src="../assets/logo.png" alt=""></a></li>
+                <li class="cart"><a href="#">Productos</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li class="cart"><a class="cta " href="#"><img src="../assets/cart.png" alt=""></a></li>
+            </ul>
+        </nav>
+        <div>
+            <input class="searchBar" type="text" placeholder="Buscar...">
+        </div>
+    </header>
+<main>
+    <section class="masVendidos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="flex">
+                        <!-- <img src="../assets/flame-icon.svg" class="icon" alt="flame">  --><p>PRODUCTOS</p><!--  <img src="../assets/flame-icon.svg" class="icon" alt="flame"> -->
+                        </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col progress">
+                    <div class="progress-bar btn-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: 40%; background-color: #0087a9cc;"></div>
+                </div>
+             </div>   
+             <div class="row">
+                <div class="col-lg-2">
+                    <div class="filtros">
+                        <ul>
+                            <li>Filtrar por:</li>
+                            <br>
+                            <li> <button type="button" class="filterButton" id="todos"> Todos </button></li> 
+                            <li> <button type="button" class="filterButton" id="procesador"> Procesadores </button></li> 
+                            <li> <button type="button" class="filterButton" id="placa"> Placas de Video </button></li> 
+                            <br>   
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-3"> <!-- PRIMERA FILA -->
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i7 12700K 5.0 Ghz Alder Lake 1700 Sin Cooler</p>
+                                </div> 
+                                <img src="../assets/I7 12700k.png" alt="">
+                                <p>Precio: $75.239</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 7 5800X 4.7 Ghz - AM4 Sin Cooler Sin Gpu</p>
+                                </div> 
+                                
+                                <img src="../assets/Ryzen 7 5800X.png" alt="">
+                                <p>Precio: $82.399</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video GeForce RTX 3070 8Gb Msi Ventus 3x Plus</p>
+                                </div> 
+                                
+                                <img src="../assets/Placa-De-Video-GeForce-RTX-3070-8Gb-Msi-Ventus-3x-Plus.png" alt="">
+                                <p>Precio: $164.989</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video GeForce RTX 3060 12Gb Gigabyte Gaming Oc</p>
+                                </div> 
+                                
+                                <img src="../assets/Gigabyte RTX 3060 12Gb.png" alt="">
+                                <p>Precio: $119.999</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"> <!-- SEGUNDA FILA -->
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i5 10400 4.3 Ghz Comet Lake 1200</p>
+                                </div> 
+                                
+                                <img src="../assets/i510400.png" alt="">
+                                <p>Precio: $39.889</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i5 12400 4.4 Ghz Alder Lake 1700</p>
+                                </div> 
+                                
+                                <img src="../assets/i512400.png" alt="">
+                                <p>Precio: $49.989</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 5 5600X 3.7 Ghz - AM4</p>
+                                </div> 
+                                
+                                <img src="../assets/r5 5600x.png" alt="">
+                                <p>Precio: $50.999</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video LHR GeForce RTX 3080 12Gb Msi Gaming Z Trio</p>
+                                </div> 
+                                
+                                <img src="../assets/MSI 3080 12GB.png" alt="">
+                                <p>Precio: $279.999</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"> <!-- TERCERA FILA -->
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 5 5600 3.5 Ghz - AM4 Sin Gpu</p>
+                                </div> 
+                               
+                                <img src="../assets/r5 5600x.png" alt="">
+                                <p>Precio: $38.999</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador  todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 7 5700G 4.6 Ghz - AM4</p>
+                                </div> 
+                                
+                                <img src="../assets/r7 5700x.png" alt="">
+                                <p>Precio: $66.989</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador  todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i5 12400F 4.4 Ghz Alder Lake 1700 Sin Gpu</p>
+                                </div> 
+                                
+                                <img src="../assets/i512400.png" alt="">
+                                <p>Precio: $43.889</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador  todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i5 11600K 4.9 Ghz Comet Lake 1200 Sin Cooler</p>
+                                </div> 
+                                
+                                <img src="../assets/i5_11600k.png" alt="">
+                                <p>Precio: $56.299</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"> <!-- CUARTA FILA -->
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 5 4600G 4.2 Ghz - AM4</p>
+                                </div> 
+                                
+                                <img src="../assets/r5 4600g.png" alt="">
+                                <p>Precio: $34.219</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i7 11700KF 5.0 Ghz Sin Cooler Sin Gpu</p>
+                                </div> 
+                                
+                                <img src="../assets/i7 11700kf.png" alt="">
+                                <p>Precio: $75.239</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i7 11700F 5.0 Ghz Sin Gpu</p>
+                                </div> 
+                                
+                                <img src="../assets/i711700f.png" alt="">
+                                <p>Precio: $70.899</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video Radeon RX 6750 XT 12Gb Msi Mech 2X Oc</p>
+                                </div> 
+                                
+                                <img src="../assets/msi Radeon RX 6750 XT 12Gb.png" alt="">
+                                <p>Precio: $148.299</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"> <!-- QUINTA FILA -->
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Intel Core i7 12700 4.9 Ghz Alder Lake 1700</p>
+                                </div> 
+                                
+                                <img src="../assets/i7 12700.png" alt="">
+                                <p>Precio: $80.289</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card procesador todos">
+                                <div class="tituloCard">
+                                    <p>Procesador Amd Ryzen 7 5700X 4.6 Ghz - AM4 Sin Cooler</p>
+                                </div> 
+                                
+                                <img src="../assets/r7 5700x.png" alt="">
+                                <p>Precio: $62.989</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video GeForce GTX1660 6Gb Msi SuperVentus Xs</p>
+                                </div> 
+                                
+                                <img src="../assets/GTX 1660 6Gb Msi Super.png" alt="">
+                                <p>Precio: $84.999</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card placa todos">
+                                <div class="tituloCard">
+                                    <p>Placa De Video GeForce RTX 3090 24Gb Gigabyte Oc</p>
+                                </div> 
+                                
+                                <img src="../assets/RTX 3090 24Gb Gigabyte.png" alt="">
+                                <p>Precio: $354.999</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+             </div>
+        </div>
+    </section>   
+</main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
+    <script src="../js/script.js"></script>
+</body>
+</html>
