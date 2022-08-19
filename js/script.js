@@ -177,7 +177,18 @@ function renderProductos(){
 }}
 
 if(localStorage.getItem("productosEnCarro")){
-    productosEnCarro=JSON.parse(localStorage.getItem(productosEnCarro))
+    carrito=JSON.parse(localStorage.getItem("productosEnCarro"))
+    console.log(carrito)
+    for(let prod of carrito){
+        tablaRender.innerHTML+=
+        `
+        <div style="display:flex; text-align:center;">
+            <td style="margin: 0 3rem 0 3rem">${prod.id}</td>
+            <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
+            <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
+        </div>
+        `;
+    }
 }
 
 function agregarAlCarrito(prod){
