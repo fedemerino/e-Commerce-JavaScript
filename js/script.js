@@ -148,7 +148,10 @@ prod20:{
 
 let carrito = [];
 let contenedor = document.getElementById('cards');
-let tablaRender = document.getElementById('tablaCart');
+let tablaRender = document.getElementById('itemsTabla');
+let contenedorCarrito = document.querySelector("#items");
+let contenedorFooterCarrito = document.querySelector("#footer")
+
 renderProductos();
 
 function renderProductos(){
@@ -173,19 +176,33 @@ function renderProductos(){
     document.getElementById(`btn${stock[prod].id}`).addEventListener("click", function(){agregarAlCarrito(stock[prod])})  
 }}
 
+if(localStorage.getItem("productosEnCarro")){
+    productosEnCarro=JSON.parse(localStorage.getItem(productosEnCarro))
+}
+
 function agregarAlCarrito(prod){
     carrito.push(prod)
     console.log(carrito)
-    alert("Agregaste " +prod.prod +" al carrito")
+    swal.fire("Agregaste " +prod.prod +" al carrito")
     localStorage.setItem("productosEnCarro", JSON.stringify(carrito))
-    tablaRender.innerHTML+=
+
+     tablaRender.innerHTML+=
     `
-    <div>
-        <p>${prod.id}</p>
-        <p>${prod.prod}</p>
-        <p>${prod.precio}</p>
+    <div style="display:flex; text-align:center;">
+        <td style="margin: 0 3rem 0 3rem">${prod.id}</td>
+        <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
+        <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
     </div>
     `;
+
+    /* tablaRender.innerHTML+=
+    `
+    <div style="display:flex; text-align:center;">
+        <p style="margin: 0 3rem 0 3rem">${prod.id}</p>
+        <p style="margin: 0 3rem 0 3rem">${prod.prod}</p>
+        <p style="margin: 0 3rem 0 3rem">${prod.precio}</p>
+    </div>
+    `; */
 }
 
 const filtrarItems = document.querySelectorAll('.card');
