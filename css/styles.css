@@ -187,7 +187,7 @@ input:hover::placeholder{
     background-color: #E9ECEF;
 }
 
-button {
+.button {
     background-color: #E9ECEF;
     color: black;
     transition-duration: 0.4s;
@@ -197,13 +197,28 @@ button {
     margin-bottom: 1rem;
   }
   
-button:hover {
+.button:hover {
     background-color: rgba(0, 135, 169, 0.4);
     color: black;
   }
 
-button:focus{
+.button:focus{
     background-color: rgba(0, 135, 169, 0.4);
+}
+
+.botonComprar{
+    font-family: 'Roboto', sans-serif;
+    
+    background-color: rgb(245, 231, 38);
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 10rem;
+}
+
+.botonComprar:hover{
+    background-color: rgba(220, 207, 34, 1);
+    border:2px solid;
 }
 
 /*FIN MAIN*/
