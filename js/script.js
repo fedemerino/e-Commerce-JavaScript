@@ -236,4 +236,6 @@ const botonComprar = document.getElementById('comprar');
 const botonLimpiar = document.getElementById('clear');
 
 botonLimpiar.addEventListener("click", function(){
-    localStorage.removeItem('productosEnCarro');})
+    localStorage.removeItem('productosEnCarro');
+    tablaRender.innerHTML = "";
+})
