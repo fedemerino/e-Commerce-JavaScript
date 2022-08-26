@@ -50,9 +50,9 @@
                         </tr>
                     </thead>
                     <tbody id="itemsTabla"><!-- ITEMS --></tbody>
-                    <tfoot>
+                    <tfoot id="totalItems">
                         <tr id="footer"></tr>
-                        <th scope="row" colspan="5"></th>
+                        <th scope="row" colspan="5" style="text-align: end;">TOTAL</th>
                     </tfoot>
                 </table>
               </div>
@@ -60,6 +60,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               <button type="button" class="btn btn-primary">Comprar</button>
+              <button type="button" id="clear" class="btn btn-primary">Limpiar</button>
             </div>
           </div>
         </div>

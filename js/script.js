@@ -151,6 +151,7 @@ let contenedor = document.getElementById('cards');
 let tablaRender = document.getElementById('itemsTabla');
 let contenedorCarrito = document.querySelector("#items");
 let contenedorFooterCarrito = document.querySelector("#footer")
+let totalItems = document.querySelector("#totalItems")
 
 renderProductos();
 
@@ -179,13 +180,21 @@ function renderProductos(){
 if(localStorage.getItem("productosEnCarro")){
     carrito=JSON.parse(localStorage.getItem("productosEnCarro"))
     console.log(carrito)
+    let acum
     for(let prod of carrito){
         tablaRender.innerHTML+=
         `
-        <div style="display:flex; text-align:center;">
+        <div style="display:flex; text-align:center;" id="${prod.id}">
             <td style="margin: 0 3rem 0 3rem">${prod.id}</td>
             <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
             <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
+        </div>
+        `;
+        acum = acum + parseInt(prod.precio)
+        totalItems.innerHTML+=
+        `
+        <div style="display:flex; text-align:end;"> 
+            <td style="margin: 0 3rem 0 3rem">${acum}</td>
         </div>
         `;
     }
@@ -205,15 +214,6 @@ function agregarAlCarrito(prod){
         <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
     </div>
     `;
-
-    /* tablaRender.innerHTML+=
-    `
-    <div style="display:flex; text-align:center;">
-        <p style="margin: 0 3rem 0 3rem">${prod.id}</p>
-        <p style="margin: 0 3rem 0 3rem">${prod.prod}</p>
-        <p style="margin: 0 3rem 0 3rem">${prod.precio}</p>
-    </div>
-    `; */
 }
 
 const filtrarItems = document.querySelectorAll('.card');
@@ -228,14 +228,12 @@ filtrarBotones.forEach((btn) => {btn.addEventListener('click', () => {
 
 function mostrarContenidoFiltrado(btn){
     filtrarItems.forEach((item) => {
-        if(item.classList.contains(btn.id)){
-            item.style.display = "block";
-        }else{
-            item.style.display = "none";
-        }
+        (item.classList.contains(btn.id)) ? item.style.display ="block" : item.style.display = "none";
     });
 };
 
 const botonComprar = document.getElementById('comprar');
+const botonLimpiar = document.getElementById('clear');
 
-
+botonLimpiar.addEventListener("click", function(){
+    localStorage.removeItem('productosEnCarro');})
