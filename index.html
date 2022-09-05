@@ -10,24 +10,74 @@
 </head>
 <body>
     <header>
+        
         <nav>
             <ul class="nav__links">
-                <img class="logo" src="./assets/logo.png" alt="">
-                <li class="cart"><a href="./pages/productos.html">Productos</a></li>
+                <li><a href="../index.html" style="transition: none; background-color: #24252A;"><img class="logo" src="../assets/logo.png" alt=""></a></li>
+                <li class="cart"><a href="#">Productos</a></li>
                 <li><a href="#">Ofertas</a></li>
                 <li><a href="#">Ayuda</a></li>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Ver Carrito
+                  </button>
             </ul>
         </nav>
+        <div>
+            <input class="searchBar" type="text" placeholder="Buscar...">
+        </div>
     </header>
 <main>
+
+<!-- MODAL -->
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Carrito</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>                  
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsTabla"><!-- ITEMS --></tbody>
+                    <tfoot>
+                        <tr id="footer"></tr>
+                        <th scope="row" colspan="5" style="text-align: end;">TOTAL</th>
+                        <div id="totalItems">
+                            
+                        </div>
+
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Comprar</button>
+              <button type="button" id="clear" class="btn btn-primary">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <section class="masVendidos">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="flex">
-                    <img src="./assets/flame-icon.svg" class="icon" alt="flame"> <p># MÁS VENDIDO</p> <img src="./assets/flame-icon.svg" class="icon" alt="flame">
-                    </div>
+                    <p>PRODUCTOS</p>
+                        </div>
                 </div>
             </div>
              <div class="row">
@@ -36,43 +86,32 @@
                 </div>
              </div>   
              <div class="row">
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="tituloCard">
-                            <p>Procesador Intel Core i7 12700K 5.0 Ghz Alder Lake 1700 Sin Cooler</p>
-                        </div> 
-                        <img src="./assets/I7 12700k.png" alt="">
-                        <p>Precio: $75.239</p>
+                <div class="col-lg-2">
+                    <div class="filtros">
+                        <ul>
+                            <li>Filtrar por:</li>
+                            <br>
+                            <li> <button type="button" class="filterButton button" id="todos"> Todos </button></li> 
+                            <li> <button type="button" class="filterButton button" id="procesador"> Procesadores </button></li> 
+                            <li> <button type="button" class="filterButton button" id="placa"> Placas de Video </button></li> 
+                            <br>   
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="tituloCard">
-                            <p>Procesador Amd Ryzen 7 5800X 4.7 Ghz - AM4 Sin Cooler Sin Gpu</p>
-                        </div> 
-                        <img src="./assets/Ryzen 7 5800X.png" alt="">
-                        <p>Precio: $82.399</p>
-                    </div>
+                <div class="col-lg-10">
+                    <div class="row dibujarCards" id="cards"> <!-- INICIO ROW -->
+                                             
+                    </div> <!-- FIN ROW  -->
+
+                
                 </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="tituloCard">
-                            <p>Placa De Video GeForce RTX 3070 8Gb Msi Ventus 3x Plus</p>
-                        </div>
-                        <img src="./assets/Placa-De-Video-GeForce-RTX-3070-8Gb-Msi-Ventus-3x-Plus.png" alt="">
-                        <p>Precio: $164.989</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="tituloCard">
-                            <p>Placa De Video GeForce RTX 3060 12Gb Gigabyte Gaming Oc</p>
-                        </div> 
-                        <img src="./assets/Gigabyte RTX 3060 12Gb.png" alt="">
-                        <p>Precio: $119.999</p>
-                    </div>
+                <div class="row">
+
+                    <div class="col-lg-12" id="tablaCart"></div>
+
                 </div>
                 
+
              </div>
         </div>
     </section>   
@@ -81,5 +120,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
     <script src="./js/script.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

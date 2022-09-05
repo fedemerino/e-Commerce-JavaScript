@@ -7,22 +7,21 @@ let contenedorCarrito = document.querySelector("#items");
 let contenedorFooterCarrito = document.querySelector("#footer")
 let totalItems = document.querySelector("#totalItems")
 
+fetchJSON();
+
 
 async function fetchJSON() {
     const URLJSON="../js/prod.json"
     const resp =await fetch(URLJSON)
     const data = await resp.json()
     productosJSON = data;
-    console.log(productosJSON)
     renderProductos();
 } 
 
 
-fetchJSON();
- console.log(productosJSON)
-
 function renderProductos(){
-     for (let producto in productosJSON) {
+     for (let producto of productosJSON) {
+        console.log(productosJSON)
         contenedor.innerHTML+=
         `
             <div class="col-lg-3">
