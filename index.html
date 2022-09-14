@@ -22,8 +22,8 @@
                   </button>
             </ul>
         </nav>
-        <div>
-            <input class="searchBar" type="text" placeholder="Buscar...">
+        <div class="searchWrapper">
+            <input  id="searchBar" type="search" placeholder="Buscar...">
         </div>
     </header>
 <main>
@@ -44,23 +44,27 @@
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>                  
-                            <th scope="col">Precio</th>
+                            <th scope="col"></th>
+                            <th scope="col">PRODUCTO</th>                  
+                            <th scope="col">PRECIO</th>
                         </tr>
                     </thead>
                     <tbody id="itemsTabla"><!-- ITEMS --></tbody>
+                    
                     <tfoot>
                         <tr id="footer"></tr>
                         <th scope="row" colspan="5" style="text-align: end;">TOTAL</th>
-                        <div id="totalItems">
+                        
                             
                         </div>
-
+                        
                     </tfoot>
+                    
                 </table>
+                
               </div>
             </div>
+            <div id="totalItems"></div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               <button type="button" class="btn btn-primary">Comprar</button>
@@ -91,7 +95,7 @@
                         <ul>
                             <li>Filtrar por:</li>
                             <br>
-                            <li> <button type="button" class="filterButton button" id="todos"> Todos </button></li> 
+                            <li> <button type="button" class="filterTodos button" id="todos"> Todos </button></li> 
                             <li> <button type="button" class="filterButton button" id="procesador"> Procesadores </button></li> 
                             <li> <button type="button" class="filterButton button" id="placa"> Placas de Video </button></li> 
                             <br>   
