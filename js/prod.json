@@ -3,6 +3,7 @@
         "categoria":"procesador",
         "img": "../assets/I7 12700k.png",
         "precio": 75.239,
+        "cantidad": 1,
         "id": 1
 },
     {
@@ -10,6 +11,7 @@
     "categoria":"procesador",
     "img": "../assets/Ryzen 7 5800X.png",
     "precio": 82.399,
+    "cantidad": 1,
     "id": 2
 },
 {
@@ -17,6 +19,7 @@
     "categoria":"placa",
     "img": "../assets/Placa-De-Video-GeForce-RTX-3070-8Gb-Msi-Ventus-3x-Plus.png",
     "precio": 164.989,
+    "cantidad": 1,
     "id": 3
 },
 {
@@ -24,6 +27,7 @@
     "categoria":"placa",
     "img": "../assets/Gigabyte RTX 3060 12Gb.png",
     "precio": 119.999,
+    "cantidad": 1,
     "id": 4
 },
 {
@@ -31,6 +35,7 @@
     "categoria":"procesador",
     "img": "../assets/i510400.png",
     "precio": 39.889,
+    "cantidad": 1,
     "id": 5
 },
 {
@@ -38,6 +43,7 @@
     "categoria":"procesador",
     "img": "../assets/i512400.png",
     "precio": 49.989,
+    "cantidad": 1,
     "id": 6
 },
 {
@@ -45,6 +51,7 @@
     "categoria":"procesador",
     "img": "../assets/r5 5600x.png",
     "precio": 50.999,
+    "cantidad": 1,
     "id": 7
 },
 {
@@ -52,6 +59,7 @@
     "categoria":"placa",
     "img": "../assets/MSI 3080 12GB.png",
     "precio": 279.999,
+    "cantidad": 1,
     "id": 8
 },
 {
@@ -59,6 +67,7 @@
     "categoria":"procesador",
     "img": "../assets/r5 5600x.png",
     "precio": 38.999,
+    "cantidad": 1,
     "id": 9
 },
 {
@@ -66,6 +75,7 @@
     "categoria":"procesador",
     "img": "../assets/r7 5700x.png",
     "precio": 66.989,
+    "cantidad": 1,
     "id": 10
 },
 {
@@ -73,6 +83,7 @@
     "categoria":"procesador",
     "img": "../assets/i512400.png",
     "precio": 43.889,
+    "cantidad": 1,
     "id": 11
 },
 {
@@ -80,6 +91,7 @@
     "categoria":"procesador",
     "img": "../assets/i5_11600k.png",
     "precio": 56.299,
+    "cantidad": 1,
     "id": 12
 },
 {
@@ -87,6 +99,7 @@
     "categoria":"procesador",
     "img": "../assets/r5 4600g.png",
     "precio": 34.219,
+    "cantidad": 1,
     "id": 13
 },
 {
@@ -94,6 +107,7 @@
     "categoria":"procesador",
     "img": "../assets/i7 11700kf.png",
     "precio": 75.239,
+    "cantidad": 1,
     "id": 14
 },
 {
@@ -101,6 +115,7 @@
     "categoria":"procesador",
     "img": "../assets/i711700f.png",
     "precio": 70.899,
+    "cantidad": 1,
     "id": 15
 },
 {
@@ -108,6 +123,7 @@
     "categoria":"placa",
     "img": "../assets/msi Radeon RX 6750 XT 12Gb.png",
     "precio": 148.299,
+    "cantidad": 1,
     "id": 16
 },
 {
@@ -115,6 +131,7 @@
     "categoria":"procesador",
     "img": "../assets/i7 12700.png",
     "precio": 80.289,
+    "cantidad": 1,
     "id": 17
 },
 {
@@ -122,6 +139,7 @@
     "categoria":"procesador",
     "img": "../assets/r7 5700x.png",
     "precio": 62.989,
+    "cantidad": 1,
     "id": 18
 },
 {
@@ -129,6 +147,7 @@
     "categoria":"placa",
     "img": "../assets/GTX 1660 6Gb Msi Super.png",
     "precio": 84.999,
+    "cantidad": 1,
     "id": 19
 },
 {
@@ -136,6 +155,7 @@
     "categoria":"placa",
     "img": "../assets/RTX 3090 24Gb Gigabyte.png",
     "precio": 354.999,
+    "cantidad": 1,
     "id": 20
 }
     ]

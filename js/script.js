@@ -15,19 +15,7 @@ const filtrarItems = document.querySelectorAll('.card');
 const filtrarBotones = document.querySelectorAll('.filterButton');
 const filtrarTodos = document.querySelectorAll('.filterTodos')
 let productosFiltrados = []
-
-//SEARCHBAR
-
-searchBar.addEventListener('keyup', (e) => {
-
-    const searchString = e.target.value.toLowerCase();
-    const filteredProducts = productosJSON.filter(producto => {
-        return producto.prod.toLowerCase().includes(searchString) || producto.categoria.toLowerCase().includes(searchString);
-    });
-    productosFiltrados = filteredProducts;
-    renderProductos(productosFiltrados)
-});
-
+const estandarDolaresAmericanos = Intl.NumberFormat('es-AR');
 
 
 fetchJSON();
@@ -41,6 +29,8 @@ async function fetchJSON() {
     productosJSON = data;
     renderProductos(productosJSON);
 }
+
+//RENDERIZAR PRODUCTOS Y LE ASIGNO A CADA BOTON UN EVENTO PARA AGREGAR CADA PRODUCTO AL CARRO
 
 const renderProductos = (prod) => {
     const productos = prod
@@ -65,24 +55,49 @@ const renderProductos = (prod) => {
     for (let x in prod) {
         document.getElementById(`btn${prod[x].id}`).addEventListener("click", function () {
             agregarAlCarrito(prod[x])
-        })}
+        })
+    }
 };
 
 
+//SEARCHBAR
+
+searchBar.addEventListener('keyup', (e) => {
+
+    const searchString = e.target.value.toLowerCase();
+    const filteredProducts = productosJSON.filter(producto => {
+        return producto.prod.toLowerCase().includes(searchString) || producto.categoria.toLowerCase().includes(searchString);
+    });
+    productosFiltrados = filteredProducts;
+    renderProductos(productosFiltrados)
+});
+
+
 // RENDERIZO EN EL CARRITO EL LOCALSTORAGE EN CASO DE TENER ALGO GUARDADO
+
 if (localStorage.getItem("productosEnCarro")) {
     carrito = JSON.parse(localStorage.getItem("productosEnCarro"))
     for (let prod of carrito) {
         tablaRender.innerHTML +=
             `
         <div style="display:flex; text-align:center;" id="${prod.id}">
-            <td style="margin: 0 3rem 0 3rem";><img src="${prod.img}" width="128" height="96"></td>
+            <td style="margin: 0 3rem 0 3rem";><img src="${prod.img}" width="96" height="64"></td>
             <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
-            <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
+            <td style="margin: 0 3rem 0 3rem; text-align:center;"><input type="number" class="prodCantidad" style="color:black;width: 3rem; padding: 0.2rem; margin: 0rem; text-align:center;" min = "1" max = "9" step="1" value="${prod.cantidad}" ></td>
+            <td style="margin: 0 3rem 0 3rem">${estandarDolaresAmericanos.format(prod.precio * prod.cantidad)}</td>
+            <td style="margin: 0 3rem 0 3rem"><img src="../assets/delete.png" style="width: 2rem;"></td>
         </div>
         `;
+        //ACOMODAR ESTOOO
+        let inputCantidadProductos = document.getElementById(`prodCantidad-${prod.id}`);
+        inputCantidadProductos.addEventListener('change', (e) => {
+            let nuevaCantidad = e.target.value;
+            prod.cantidad = nuevaCantidad;
+            console.log(nuevaCantidad);
+            mostrarEnCarrito(prod);
+        });
 
-        acum = Number(acum) + Number(prod.precio)
+        acum += prod.precio*prod.cantidad;
 
         totalItems.innerHTML =
             `
@@ -93,29 +108,77 @@ if (localStorage.getItem("productosEnCarro")) {
     }
 }
 
+//CAMBIOCANTIDAD
+
+function cambioCantidad(prod) {
+    agregarAlCarrito(prod);
+}
+
+
+
+
 //AGREGAR PRODUCTOS AL CARRITO
 
+
 function agregarAlCarrito(prod) {
-    carrito.push(prod)
 
-    swal.fire("Agregaste " + prod.prod + " al carrito")
-    localStorage.setItem("productosEnCarro", JSON.stringify(carrito))
+    const existe = carrito.some(producto => {
+        if (producto.id === prod.id) {
+            return true;
+        }
 
-    tablaRender.innerHTML +=
-        `
-    <div style="display:flex; text-align:center;">
-    <td style="margin: 0 3rem 0 3rem";><img src="${prod.img}" width="128" height="96"></td>
-        <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
-        <td style="margin: 0 3rem 0 3rem">${prod.precio}</td>
-    </div>
-    `;
-    acum = Number(acum) + Number(prod.precio)
-    totalItems.innerHTML =
-        `
+        return false;
+    });
+
+    if (existe) {
+        Swal.fire('¡Este producto ya se encuentra en el carrito!')
+    }
+    else { 
+        carrito.push(prod);
+        localStorage.setItem("productosEnCarro", JSON.stringify(carrito))
+        swal.fire("Agregaste " + prod.prod + " al carrito")
+        mostrarEnCarrito(prod);}
+        
+
+
+    function mostrarEnCarrito(prod){
+        let totalCarrito = 0;
+        tablaRender.innerHTML = '';
+        carrito.forEach((prod) => {
+        let renglonCarrito = document.createElement("tr");
+        renglonCarrito.innerHTML =
+            `
+        <div style="display:flex; text-align:center;">
+            <td style="margin: 0 3rem 0 3rem; padding: 1rem"><img src="${prod.img}" width="96" height="64"></td>
+            <td style="margin: 0 3rem 0 3rem">${prod.prod}</td>
+            <td style="margin: 0 3rem 0 3rem; text-align:center;"><input type="number" id="prodCantidad-${prod.id}" style="color:black;width: 3rem; padding: 0.2rem; margin: 0rem; text-align:center;" min = "1" max = "9" step="1" value="${prod.cantidad}" ></td>
+            <td style="margin: 0 3rem 0 3rem">${estandarDolaresAmericanos.format(prod.precio * prod.cantidad)}</td>
+            <td style="margin: 0 3rem 0 3rem"><img src="../assets/delete.png" style="width: 2.2rem;height: 3rem;"></td>
+        </div>
+        `;
+            tablaRender.append(renglonCarrito);
+        })
+    
+        let inputCantidadProductos = document.getElementById(`prodCantidad-${prod.id}`);
+        inputCantidadProductos.addEventListener('change', (e) => {
+            let nuevaCantidad = e.target.value;
+            prod.cantidad = nuevaCantidad;
+            console.log(nuevaCantidad);
+            mostrarEnCarrito(prod);
+        });
+
+
+        totalItems.innerHTML =
+        
+            `
     <div style="text-align:end; margin-right:2.5rem; margin-bottom: 0.5rem;"> 
         <td style="margin: 0 3rem 0 3rem">${acum}</td>
     </div>
     `;
+        
+       
+    }
+    console.log(carrito)
 }
 
 

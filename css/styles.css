@@ -99,21 +99,6 @@ header a img:hover{
     opacity: 0.8;
 }
 
-input::placeholder{
-    background-color: rgba(225, 225, 225, 0.5);
-    
-}
- 
-input:focus::placeholder{
-    color: transparent;
-    background-color: rgba(225, 225, 225, 0.5);
-    
-}
-
-input:hover::placeholder{
-    background-color: rgba(225, 225, 225, 0.5);
-    
-}
 
 input{
     background-color: rgba(225, 225, 225, 0.5);
@@ -124,11 +109,16 @@ input{
     padding-left: 1rem;
 }
 
+input::placeholder{
+    background-color: rgba(225, 225, 225, 0);
+    color: black;
+}
+ 
 
 .searchBar{
     width: 25rem;
     text-align: center;
-    background-color: rgba(225, 225, 225, 0.5);
+    background-color: rgba(252, 252, 252, 0.5);
     
 }
 
