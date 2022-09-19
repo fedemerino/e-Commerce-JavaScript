@@ -23,7 +23,7 @@ const estandarDolaresAmericanos = Intl.NumberFormat('es-AR');
 fetchJSON();
 
 async function fetchJSON() {
-    const URLJSON = "../js/prod.json"
+    const URLJSON = "./js/prod.json"
     const resp = await fetch(URLJSON)
     const data = await resp.json()
     productosJSON = data;
