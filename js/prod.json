@@ -1,7 +1,7 @@
 [{
         "prod":"Procesador Intel Core i7 12700K 5.0 Ghz Alder Lake 1700 Sin Cooler" ,
         "categoria":"procesador",
-        "img": "../assets/I7 12700k.png",
+        "img": "./assets/I7 12700k.png",
         "precio": 75.239,
         "cantidad": 1,
         "id": 1
