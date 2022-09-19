@@ -1,4 +1,3 @@
-//HOLA
 let carrito = [];
 var productosJSON = [];
 let contenedor = document.getElementById('cards');
