@@ -98,6 +98,9 @@ header a img:hover{
     opacity: 0.8;
 }
 
+option{
+    color:gray;
+}
 
 input{
     background-color: rgba(225, 225, 225, 0.5);
