@@ -6,6 +6,8 @@ let tablaFooter = document.querySelector('#Footer');
 let contenedorCarrito = document.querySelector("#items");
 let contenedorFooterCarrito = document.querySelector("#footer")
 let totalItems = document.querySelector("#totalItems")
+let btnComprar = document.querySelector("#comprar");
+let btnFinalizarCompra = document.querySelector("#finalizarCompra");
 let acum = 0;
 let acumTotal = 0;
 let card = document.getElementsByClassName('card');
@@ -192,6 +194,61 @@ const eliminarProductoDelCarrito = (prodId) => {
     mostrarEnCarrito();
 }
 
+//COMPRAR
+
+btnComprar.addEventListener('click', () => {
+    finalizarCompra();
+})
+
+//FUNCION FINALIZAR COMPRA
+
+function finalizarCompra(){
+    if (carrito.length == 0) {
+        swal.fire('El carrito está vacío. Debes agregar al menos un producto.')
+    }
+    else {
+        $('#modalComprar').modal()
+    }
+}
+
+//BOTON FINALIZAR COMPRA
+
+btnFinalizarCompra.addEventListener('click', ()=>{
+    let timerInterval
+Swal.fire({
+  title: 'Procesando el pago...',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡El pago fue realizado con éxito!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+
+localStorage.removeItem('productosEnCarro');
+    carrito = [];
+    tablaRender.innerHTML = "";
+    totalItems.innerHTML = "";
+    document.querySelector("#cancelar").click();
+})
 
 //FILTRO PRODUCTOS CON LOS BOTONES
 
