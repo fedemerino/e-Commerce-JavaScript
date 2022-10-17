@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/d3cb170a93.js" crossorigin="anonymous"></script>
     <title>Insumax</title>
 </head>
 
 <body>
     <header>
-
         <nav>
             <ul class="nav__links">
                 <li><a href="./index.html" style="transition: none;"><img class="logo"
@@ -22,13 +22,17 @@
                 <li class="cart"><a href="#">Productos</a></li>
                 <li><a href="#">Ofertas</a></li>
                 <li><a href="#">Ayuda</a></li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Ver Carrito
-                </button>
+                
             </ul>
         </nav>
-        <div class="searchWrapper">
-            <input id="searchBar" type="search" placeholder="Buscar...">
+        <div class="navRight">
+            <div class="searchWrapper">
+                <input id="searchBar" class="searchBar" type="search" placeholder="Buscar...">
+            </div>
+            <div>
+                <img src="./assets/cart.png" data-toggle="modal" data-target="#exampleModalCenter">
+            </img>
+            </div>
         </div>
     </header>
     <main>
@@ -198,7 +202,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2">
-                        <div class="filtros">
+                        <div class="filtros filtrosCentrados">
                             <ul>
                                 <li class="letraNegra">Filtrar por:</li>
                                 <br>

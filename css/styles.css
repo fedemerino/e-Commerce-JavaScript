@@ -42,8 +42,9 @@ a, li, button{
 header{
     background-color: #030303f9;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
+    width: 100%vw;
     align-items: center;
     padding: 1.8rem 10%;
     
@@ -78,9 +79,17 @@ header{
     color: #0089a9;
 }
 
+.navRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center ;
+}
+
+
 header img{
-    max-width: 2.3rem;
-    max-height: 2.3rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -92,8 +101,8 @@ header img:hover{
 }
 
 header a img{
-    max-width: 2.3rem;
-    max-height: 2.3rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
     border: none;
     border-radius: 1rem;
     cursor: pointer;
@@ -112,24 +121,33 @@ option{
 
 input{
     background-color: rgba(225, 225, 225, 0.5);
-    color:black;
-    font-weight: 600;
+    color:white;
+    font-weight:400;
     font-family: 'Roboto', sans-serif;
     width: 25rem;
     padding-left: 1rem;
+    border: 0px;
 }
 
+input:focus-visible{
+    outline: 0px;
+}
 input::placeholder{
     background-color: rgba(225, 225, 225, 0);
-    color: black;
+    color: white;
 }
  
 
 .searchBar{
-    width: 25rem;
-    text-align: center;
+    border-radius: 1px;
+    margin-right: 2rem;
+    width: 15rem;
     background-color: rgba(252, 252, 252, 0.5);
+    transition: width .3s;
     
+}
+.searchBar:hover{
+    width: 25rem;
 }
 
 /*FIN HEADER*/
@@ -227,8 +245,8 @@ input::placeholder{
 }
 
 .botonComprar:hover{
-    background-color: rgba(220, 207, 34, 1);
-    border:2px solid;
+    background-color: #957142;
+    border:1.3px solid;
 }
 
 /*FIN MAIN*/
@@ -296,10 +314,16 @@ h2{
 
 /*MEDIA QUERIES*/
 
-@media only screen and (max-device-width: 33em){
+@media only screen and (max-device-width: 920px){
     
 /*HEADER AND NAVBAR*/
 
+    .filtrosCentrados{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
     .searchBar{
         width: 30vw;
     }
